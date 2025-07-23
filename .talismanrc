@@ -6,3 +6,5 @@ fileignoreconfig:
     checksum: da0629e4c76bb4203f30f81622a812de67d0f22d0bacef7465fab093bd631a07
   - filename: cicd/version
     checksum: 8af25c7d3d39c05c4a53632fb2713e6274122a598ad000544c4b325c97db1c7a
+  - filename: content/_index.md
+    checksum: 7836b301e5f306759f492b1049cc50eb33ac91c63aacc267e9ae9f78726586ac
