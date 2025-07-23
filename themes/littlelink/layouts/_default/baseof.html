@@ -34,9 +34,9 @@
   <meta name="robots" content='{{ .Params.robots | default "index, follow" }}'>
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href='{{ "css/reset.css" | relURL }}'>
-  <link rel="stylesheet" href='{{ "css/style.css" | relURL }}'>
-  <link rel="stylesheet" href='{{ "css/brands.css" | relURL }}'>
+  <link rel="stylesheet" href='{{ "css/reset.css" | relURL }}?v={{ getenv "VERSION" }}'>
+  <link rel="stylesheet" href='{{ "css/style.css" | relURL }}?v={{ getenv "VERSION" }}'>
+  <link rel="stylesheet" href='{{ "css/brands.css" | relURL }}?v={{ getenv "VERSION" }}'>
 
   <!-- Sentry -->
   <script src="{{ .Site.Params.sentry_dsn }}" crossorigin="anonymous"></script>
