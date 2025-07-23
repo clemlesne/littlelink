@@ -74,6 +74,7 @@
     {{ range .Site.Menus.footer }}
     <a href="{{ .URL }}">{{ .Name }}</a>
     {{ end }}
+    <a href="{{ .Site.Params.github }}" target="_blank" rel="noopener">Fork this website</a>
     <p>{{ getenv "VERSION" }}</p>
   </footer>
   {{ end }}
