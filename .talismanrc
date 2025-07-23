@@ -1,10 +1,6 @@
 version: "1.0"
 fileignoreconfig:
-- filename: images/icons/notion.svg
-  checksum: 5efd3761483ba0f209c2ff9bbe5c32f6e55ae2d10a92c98a98bd4f61d0f697cf
-- filename: images/icons/apple-podcasts-alt.svg
-  checksum: 36e0a84a1d3dba142a691466fdf6bfa8b3f4771b351403de8d0a19a62850018a
-- filename: images/icons/hashnode.svg
-  checksum: e8119781156e5f3c67bf7a08a8c46222b0de35b5b7c0eae470c43fe32ffdde90
-- filename: index.html
-  checksum: e034c89cb962f04e920008b76c719875c92f6e2ba6988a6d37cad612b0aca62a
+  - filename: hugo.toml
+    checksum: c852cad3f6d587481efbf78d86314c3d575abe1efdb8feb0b5c56fb6efc00836
+  - filename: themes/littlelink/layouts/_default/baseof.html
+    checksum: da0629e4c76bb4203f30f81622a812de67d0f22d0bacef7465fab093bd631a07

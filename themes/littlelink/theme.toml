@@ -1,0 +1,12 @@
+name = "LittleLink"
+license = "MIT"
+licenselink = "https://github.com/clemlesne/littlelink/blob/main/LICENSE"
+description = "A simple, responsive, and customizable link sharing theme for Hugo"
+homepage = "https://github.com/clemlesne/littlelink"
+tags = ["links", "social", "personal", "minimal", "responsive"]
+features = ["responsive", "social-links", "customizable"]
+min_version = "0.41.0"
+
+[author]
+name = "Clémence Lesné"
+homepage = "https://lesne.pro"

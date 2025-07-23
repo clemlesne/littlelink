@@ -1,0 +1,52 @@
+{{ define "extra_head" }}
+<!-- Home page specific meta -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="{{ .Site.Title }}">
+<meta property="og:description" content="{{ .Site.Params.description }}">
+{{ if eq hugo.Environment "production" }}
+<meta property="og:image" content="/cdn-cgi/image/width=512,format=auto,quality=85/{{ .Site.Params.avatar }}">
+{{ else }}
+<meta property="og:image" content="{{ .Site.Params.avatar }}">
+{{ end }}
+<meta property="og:url" content="{{ .Permalink }}">
+{{ end }}
+
+{{ define "header" }}
+<!-- Home page header -->
+{{ if eq hugo.Environment "production" }}
+<img class="avatar" src="/cdn-cgi/image/width=265,format=auto,quality=85/{{ .Site.Params.avatar }}"
+  srcset="/cdn-cgi/image/width=265,format=auto,quality=85/{{ .Site.Params.avatar }} 1x, /cdn-cgi/image/width=512,format=auto,quality=85/{{ .Site.Params.avatar }} 2x"
+  loading="lazy" alt="{{ .Site.Params.author }}">
+{{ else }}
+<img class="avatar" src="{{ .Site.Params.avatar }}" loading="lazy" alt="{{ .Site.Params.author }}">
+{{ end }}
+
+<!-- Name -->
+<h1>{{ .Site.Params.author }}</h1>
+<!-- Bio -->
+{{ .Content | safeHTML }}
+{{ end }}
+
+{{ define "main" }}
+<!-- Social links -->
+<div class="button-stack" role="navigation" aria-label="Social media and contact links">
+  {{ range .Site.Data.links }}
+  <a class="button button-{{ .class }}" href="{{ .url }}" target="_blank" rel="noopener" role="button"
+    aria-label="{{ .text }} - Opens in new tab">
+    <img class="icon" aria-hidden="true" src="{{ .icon | relURL }}" alt="{{ .alt }}">
+    {{ .text }}
+  </a>
+  {{ end }}
+</div>
+
+<!-- SEO Content for Search Engines and LLMs -->
+<div role="complementary" style="position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden;"
+  aria-hidden="true">
+  {{ $professional := .Site.Data.home.professional }}
+  <h2>{{ $professional.title }}</h2>
+  {{ range $professional.sections }}
+  <h3>{{ .title }}</h3>
+  {{ .content | safeHTML }}
+  {{ end }}
+</div>
+{{ end }}

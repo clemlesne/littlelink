@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+{{ block "head" . }}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Page Title -->
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+  <!-- Favicon -->
+  {{ if eq hugo.Environment "production" }}
+  <link rel="icon" type="image/x-icon" href='/cdn-cgi/image/width=32,format=auto,quality=85/{{ .Site.Params.avatar }}'>
+  {{ else }}
+  <link rel="icon" type="image/x-icon" href="{{ .Site.Params.avatar }}">
+  {{ end }}
+
+  <!-- Meta Description -->
+  <meta name="description"
+    content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+  <!-- Keywords -->
+  <meta name="keywords" content="{{ .Site.Params.keywords }}">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  <!-- Author Information -->
+  <meta name="author" content="{{ .Site.Params.author }}">
+
+  <!-- Robots -->
+  <meta name="robots" content='{{ .Params.robots | default "index, follow" }}'>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href='{{ "css/reset.css" | relURL }}'>
+  <link rel="stylesheet" href='{{ "css/style.css" | relURL }}'>
+  <link rel="stylesheet" href='{{ "css/brands.css" | relURL }}'>
+
+  <!-- Sentry -->
+  <script src="{{ .Site.Params.sentry_dsn }}" crossorigin="anonymous"></script>
+
+  {{ block "extra_head" . }}{{ end }}
+</head>
+{{ end }}
+
+<body>
+  {{ $containerClass := "container" }}
+  {{ if not .IsHome }}
+  {{ $containerClass = printf "%s container--left" $containerClass }}
+  {{ end }}
+  <div class="{{ $containerClass }}" role="main">
+
+    {{ block "navigation" . }}
+    {{ if not .IsHome }}
+    <nav role="navigation">
+      <a href='{{ "/" | relURL }}' aria-label="Back to homepage">← Back to main page</a>
+    </nav>
+    {{ end }}
+    {{ end }}
+
+    {{ block "header" . }}
+    <!-- Default header block - pages can override this -->
+    {{ end }}
+
+    <!-- Main Content -->
+    {{ block "main" . }}{{ end }}
+  </div>
+
+  {{ block "footer" . }}
+  <!-- Default footer for all pages -->
+  <footer class="container">
+    {{ range .Site.Menus.footer }}
+    <a href="{{ .URL }}">{{ .Name }}</a>
+    {{ end }}
+  </footer>
+  {{ end }}
+</body>
+
+</html>
