@@ -1,76 +1,36 @@
-# LittleLink
+# Personal links site
 
-Personal home page built with Hugo.
+A clean, responsive personal links page built with Hugo and the LittleLink theme.
 
-## Development
+![GitHub License](https://img.shields.io/github/license/clemlesne/littlelink)
+![GitHub last commit](https://img.shields.io/github/last-commit/clemlesne/littlelink)
 
-### Prerequisites
-
-- [Hugo Extended](https://gohugo.io/installation/) (v0.140.2 or later)
-
-### Local Development
-
-1. Install dependencies:
-
-   ```bash
-   make install
-   ```
-
-2. Start the development server:
-
-   ```bash
-   make dev
-   ```
-
-3. Open your browser to `http://localhost:1313`
-
-### Alternative Development Commands
-
-- **Development server for external access**: `make dev-external`
-- **Build for development**: `make build-dev` (includes drafts and future posts)
-- **Check Hugo configuration**: `make check`
-- **Serve built site**: `make serve-build`
-- **View all commands**: `make help`
-
-### Building for Production
+## Quick start
 
 ```bash
-make build
+# Install dependencies
+make install
+
+# Start development server
+make dev
+
+# Build for production
+make build url=https://example.com
 ```
 
-### NPM Scripts (Alternative)
+Visit `http://localhost:1313` to view your site.
 
-You can also use npm scripts directly:
+## Project structure
 
-```bash
-npm run dev    # Start development server
-npm run build  # Build for production
+```text
+├── content/           # Page content
+├── data/              # Configuration files
+├── themes/littlelink/ # Hugo theme
+└── hugo.toml          # Site configuration
 ```
 
-The built site will be available in the `public/` directory.
+## [License](LICENSE)
 
-## Structure
+## Acknowledgements
 
-- `content/` - Page content (Markdown files)
-- `data/` - Data files (social links configuration)
-- `themes/littlelink/` - Custom Hugo theme
-- `static/` - Static assets (copied from original site)
-- `hugo.toml` - Hugo configuration
-
-## Configuration
-
-### Social Links
-
-Edit `data/links.yaml` to add/remove/modify social media links.
-
-### Site Information
-
-Edit `hugo.toml` to update site metadata, profile information, and other settings.
-
-## Deployment
-
-The site is automatically deployed to GitHub Pages via GitHub Actions when changes are pushed to the `main` branch. The workflow is defined in `.github/workflows/hugo.yml`.
-
-## License
-
-MIT
+Built with [LittleLink](https://littlelink.io/) - A lightweight DIY alternative to services like Linktree.
