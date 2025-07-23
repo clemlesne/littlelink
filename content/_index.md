@@ -4,4 +4,4 @@ description: "Clémence Lesné's links to social media, GitHub, LinkedIn, and mo
 type: "home"
 ---
 
-Hello 🙋🏻‍♀️, I'm a passionate tech enthusiast. Especially in AI and software architecture. Let's grab a coffee?
+Hello 🙋🏻‍♀️, I'm a passionate tech enthusiast. Especially in AI and software architecture, with a few years scaling platforms and complex systems. Let's grab a coffee?
