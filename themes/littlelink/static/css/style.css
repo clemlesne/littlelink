@@ -70,9 +70,12 @@
 body {
 	background-color: var(--color-base-light);
 	color: var(--color-base-dark);
+	display: flex;
+	flex-direction: column;
 	font-family: "Roboto Flex", system-ui;
 	font-size: var(--scale-1);
 	font-variation-settings: "wght" 400;
+	justify-content: space-between;
 	line-height: 1.6;
 }
 
