@@ -8,8 +8,8 @@
 /* Brand Button Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /* Only include brand-specific button styling here */
-.button,
-button {
+.button {
+	background-color: var(--button-background);
 	background-color: var(--button-background, transparent);
 	box-shadow: 0 0 0 1px var(--button-border, transparent) inset;
 	color: var(--button-text, var(--color-base-light));

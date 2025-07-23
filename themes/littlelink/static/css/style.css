@@ -159,7 +159,6 @@ a:not(.button):hover {
 
 .button {
 	align-items: center;
-	backdrop-filter: blur(2px);
 	border-radius: var(--border-radius);
 	box-sizing: border-box;
 	cursor: pointer;
