@@ -1,8 +1,6 @@
 # Versioning
 version_full ?= $(shell $(MAKE) --silent version-full)
 version_small ?= $(shell $(MAKE) --silent version)
-# Dev env
-port := 8000
 
 version:
 	@bash cicd/version/version.sh -g . -c
@@ -20,7 +18,7 @@ lint:
 
 # Start development server with live reload
 dev:
-	VERSION=$(version_full) hugo server -D --bind 0.0.0.0 --port $(port)
+	VERSION=$(version_full) hugo server -D --bind 0.0.0.0
 
 # Build the site for production
 build:
