@@ -161,6 +161,7 @@ a:not(.button):hover {
 	align-items: center;
 	border-radius: var(--border-radius);
 	box-sizing: border-box;
+	color: var(--button-text) !important;
 	cursor: pointer;
 	display: inline-flex;
 	font-size: var(--scale-1);
@@ -173,15 +174,9 @@ a:not(.button):hover {
 	padding: var(--spacing-xs) var(--spacing-s);
 	text-align: center;
 	text-decoration: none;
-	transition: filter 0.2s ease, transform 0.2s ease;
+	transition: transform 0.2s ease-in-out;
 	white-space: normal;
 	width: 18.75rem;
-}
-
-.button:hover {
-	color: var(--button-text);
-	filter: brightness(90%);
-	transform: translateY(-1px);
 }
 
 /* Icons */
