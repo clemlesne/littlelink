@@ -1,4 +1,14 @@
+# Versioning
+version_full ?= $(shell $(MAKE) --silent version-full)
+version_small ?= $(shell $(MAKE) --silent version)
+# Dev env
 port := 8000
+
+version:
+	@bash cicd/version/version.sh -g . -c
+
+version-full:
+	@bash cicd/version/version.sh -g . -c -m
 
 # Install dependencies and setup development environment
 install:
@@ -10,15 +20,15 @@ lint:
 
 # Start development server with live reload
 dev:
-	hugo server -D --bind 0.0.0.0 --port $(port)
+	VERSION=$(version_full) hugo server -D --bind 0.0.0.0 --port $(port)
 
 # Build the site for production
 build:
-	hugo --gc --minify --baseURL $(url)
+	VERSION=$(version_full) hugo --gc --minify --baseURL $(url)
 
 # Build the site for development (with drafts and future posts)
 build-dev:
-	hugo --gc --minify --buildDrafts --buildFuture
+	VERSION=$(version_full) hugo --gc --minify --buildDrafts --buildFuture
 
 # Clean build artifacts
 clean:
