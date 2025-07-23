@@ -1,0 +1,31 @@
+# SEO and professional content for search engines
+professional:
+  title: "Professional Profile & Contact Information"
+  sections:
+    - title: "Current Position"
+      content: "National Technology Officer at Microsoft, Paris: Leading AI R&D innovation and Agentic AI advancement across France. Champion digital sovereignty, safety, and edge computing while launching cutting-edge internal AI knowledge platforms using Python, GenAI, and cloud-native technologies."
+
+    - title: "Previous Experience"
+      content: |
+        Solutions Architect at Microsoft, Paris: Delivered 40+ training scenarios and 10 public events on ML/GenAI/DevSecOps. Mentored 90 application projects including 20 GenAI solutions with Azure AI/OpenAI. Created open source projects reaching 500K+ developers worldwide.
+
+        Cloud Architect at AXA, Paris: Led AWS, DevEx and DevOps transformations across 30 projects. Architected robust 300-account platform with innovative multi-cloud FinOps/DevSecOps components using Terraform and Python.
+
+        Platform Engineer at AXA, Paris: Achieved 99.997% SLA across 20 production instances. Revolutionized deployment processes with GitOps practices, scaled micro-services to 10K RPS on hybrid infrastructure, and product-managed data-API serving 1 billion documents.
+
+    - title: "Notable Projects"
+      content: "Open Source Contributions: Scrape It Now (520+ GitHub stars) - CLI web-scraper for AI workflows; Call Center AI (500+ stars, 500K+ views) - latency-optimized assistant with Azure AI; Blue Agent (3M+ pulls, 5M+ uses) - SLSA-4 Kubernetes CI/CD pipeline deployer."
+
+    - title: "Certifications & Skills"
+      content: |
+        Microsoft Azure: AI Engineer Associate, Cosmos DB Developer, Solutions Architect Expert, Administrator Associate, DevOps Engineer Expert, Developer Associate
+        AWS: Solutions Architect Professional/Associate
+        Other: FinOps Certified Practitioner, HashiCorp Terraform Associate
+
+    - title: "Community & Languages"
+      content: |
+        Leadership: Ministry of Higher Education & Research National Advisory Group member, FAGE Active Member, advocating for educational excellence across France.
+        Languages: French (Native), English (Professional - TOEIC 930/990)
+
+    - title: "Contact"
+      content: "For professional inquiries, please reach out via LinkedIn or email for faster response times and effective business communication."

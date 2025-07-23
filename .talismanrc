@@ -1,6 +1,6 @@
 version: "1.0"
 fileignoreconfig:
-  - filename: privacy.html
-    checksum: 99263cb8075767c622a2f3d99518edea2938e7777f92aaf363b937a6b6f408a9
-  - filename: index.html
-    checksum: 80012345430a1422e1eba3bb14d1f19ea6cef9c54980f1cbde7068d3f4566b08
+  - filename: hugo.toml
+    checksum: c852cad3f6d587481efbf78d86314c3d575abe1efdb8feb0b5c56fb6efc00836
+  - filename: themes/littlelink/layouts/_default/baseof.html
+    checksum: da0629e4c76bb4203f30f81622a812de67d0f22d0bacef7465fab093bd631a07

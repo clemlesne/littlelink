@@ -100,12 +100,6 @@ body {
 	text-align: left;
 }
 
-section {
-	display: flex;
-	flex-direction: column;
-	gap: var(--spacing-m);
-}
-
 /* For devices larger than 400px */
 @media (min-width:25rem) {
 	.container {
@@ -237,10 +231,6 @@ h3 {
 
 	h3 {
 		font-size: var(--scale-2);
-	}
-
-	section {
-		gap: var(--spacing-l);
 	}
 
 	footer {

@@ -1,0 +1,12 @@
+{{ define "header" }}
+<!-- Page header -->
+<h1>{{ .Title }}</h1>
+{{ if .Description }}
+<p>{{ .Description }}</p>
+{{ end }}
+{{ end }}
+
+{{ define "main" }}
+<!-- Page content -->
+{{ .Content }}
+{{ end }}

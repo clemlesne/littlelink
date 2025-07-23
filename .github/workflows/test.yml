@@ -1,0 +1,34 @@
+name: Test Hugo build
+
+on:
+  # Runs on pull requests
+  pull_request:
+    branches: ["main", "develop"]
+  # Runs on pushes to develop branch
+  push:
+    branches: ["develop"]
+
+jobs:
+  # Test build job
+  test-build:
+    runs-on: ubuntu-latest
+    env:
+      # Se: https://github.com/gohugoio/hugo/releases
+      HUGO_VERSION: 0.148.1
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Install Dart Sass
+        run: sudo snap install dart-sass
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Test build with Hugo
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: development
+          TZ: Europe/Paris
+        run: make build-dev
