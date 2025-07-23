@@ -1,0 +1,7 @@
+version: 2
+updates:
+  - package-ecosystem: gitsubmodule
+    directory: cicd/version
+    target-branch: develop
+    schedule:
+      interval: weekly

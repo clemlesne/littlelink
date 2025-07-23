@@ -8,13 +8,16 @@ theme = 'littlelink'
 author = "Clémence Lesné"
 avatar = "https://gravatar.com/avatar/93647387ab6f94705a6d95c4f082093c13759c0011ab6fb4b1e286d730553e7c?size=1024"
 description = "Clémence Lesné's links to social media, GitHub, LinkedIn, and more."
+github = "https://github.com/clemlesne/littlelink"
 keywords = "Clémence Lesné, LittleLink"
 
 # SEO and Analytics
 sentry_dsn = "https://js-de.sentry-cdn.com/db63e7e0e80d9c7a5f0f0895c8bd0774.min.js"
 
-[menu]
 [[menu.footer]]
 name = "Privacy policy"
 url = "/privacy"
 weight = 10
+
+[security.funcs]
+getenv = ['^HUGO_', '^CI$', '^VERSION$']

@@ -117,9 +117,14 @@ body {
 }
 
 /* Footer */
-footer {
-	margin: var(--spacing-xl) 0;
+.footer {
+	filter: grayscale(1);
+	flex-direction: row;
+	flex-wrap: wrap;
 	font-size: var(--scale-0);
+	gap: var(--spacing-s);
+	justify-content: center;
+	row-gap: var(--spacing-xs);
 }
 
 /* Links */

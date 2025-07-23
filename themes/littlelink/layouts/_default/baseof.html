@@ -70,10 +70,11 @@
 
   {{ block "footer" . }}
   <!-- Default footer for all pages -->
-  <footer class="container">
+  <footer class="container footer">
     {{ range .Site.Menus.footer }}
     <a href="{{ .URL }}">{{ .Name }}</a>
     {{ end }}
+    <p>{{ getenv "VERSION" }}</p>
   </footer>
   {{ end }}
 </body>

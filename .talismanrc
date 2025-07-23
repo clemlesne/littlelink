@@ -4,3 +4,5 @@ fileignoreconfig:
     checksum: c852cad3f6d587481efbf78d86314c3d575abe1efdb8feb0b5c56fb6efc00836
   - filename: themes/littlelink/layouts/_default/baseof.html
     checksum: da0629e4c76bb4203f30f81622a812de67d0f22d0bacef7465fab093bd631a07
+  - filename: cicd/version
+    checksum: 8af25c7d3d39c05c4a53632fb2713e6274122a598ad000544c4b325c97db1c7a
