@@ -10,6 +10,10 @@
 	/* Allow for light and dark themes */
 	color-scheme: light dark;
 
+	/* Use system font stack */
+	--font-family-base: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--font-family-mono: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
+
 	/* Using a 1.25 modular scale for typography */
 	font-size: 16px;
 	/* 16px */
@@ -66,13 +70,20 @@
 	}
 }
 
+/* Smaller font for small devices */
+@media (max-width:550px) {
+	:root {
+		font-size: 14px;
+	}
+}
+
 /* Body styles */
 body {
 	background-color: var(--color-base-light);
 	color: var(--color-base-dark);
 	display: flex;
 	flex-direction: column;
-	font-family: "Roboto Flex", system-ui;
+	font-family: var(--font-family-base);
 	font-size: var(--scale-1);
 	font-variation-settings: "wght" 400;
 	justify-content: space-between;
@@ -80,6 +91,10 @@ body {
 }
 
 /* Accessibility */
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
 :focus-visible {
 	outline: 2px solid var(--color-accent-light);
 	outline-offset: 2px;
@@ -87,41 +102,44 @@ body {
 
 /* Grid system */
 .container {
-	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-l);
+	gap: var(--spacing-xl);
 	margin: 0 auto;
 	max-width: 40rem;
 	padding: var(--spacing-xl) var(--spacing-m);
-	position: relative;
 	text-align: center;
-	width: 100%;
 }
 
 .container--left {
 	text-align: left;
 }
 
-/* For devices larger than 400px */
-@media (min-width:25rem) {
+/* For small devices */
+@media (min-width:400px) {
 	.container {
-		width: 85%;
+		width: 90%;
 		padding-left: 0;
 		padding-right: 0;
 	}
 }
 
-/* For devices larger than 550px */
-@media (min-width:34.375rem) {
+/* For larger devices */
+@media (min-width:550px) {
 	.container {
 		width: 80%;
 	}
 }
 
+.container>section {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-l);
+}
+
 /* Footer */
 .footer {
-	filter: grayscale(1);
+	filter: brightness(0.6);
 	flex-direction: row;
 	flex-wrap: wrap;
 	font-size: var(--scale-0);
@@ -131,24 +149,16 @@ body {
 }
 
 /* Links */
-a {
-	color: var(--color-accent-dark);
+a[href]:not([href=""]) {
+	color: var(--color-accent-light);
 	text-decoration: underline;
 }
 
-a:hover {
-	color: var(--color-accent-light);
-}
-
-/* Buttons */
-a:not(.button) {
-	color: var(--color-accent-light);
-}
-
-a:not(.button):hover {
+a[href]:not([href=""]):hover {
 	color: var(--color-accent-dark);
 }
 
+/* Buttons */
 .button-stack {
 	align-items: center;
 	display: flex;
@@ -173,7 +183,7 @@ a:not(.button):hover {
 	min-height: 3rem;
 	padding: var(--spacing-xs) var(--spacing-s);
 	text-align: center;
-	text-decoration: none;
+	text-decoration: none !important;
 	transition: transform 0.2s ease-in-out;
 	white-space: normal;
 	width: 18.75rem;
@@ -199,6 +209,16 @@ a:not(.button):hover {
 }
 
 /* Typography */
+header {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+}
+
+header p {
+	filter: brightness(0.6);
+}
+
 h1 {
 	font-size: var(--scale-5);
 	font-variation-settings: "wght" 700;
@@ -211,66 +231,56 @@ h1 {
 h2 {
 	font-size: var(--scale-4);
 	font-variation-settings: "wght" 600;
+	line-height: 1.1;
 }
 
 h3 {
 	font-size: var(--scale-3);
 	font-variation-settings: "wght" 500;
+	line-height: 1.1;
 }
 
-@media (max-width:34.375rem) {
-	body {
-		font-size: var(--scale-0);
-	}
+pre {
+	font-family: var(--font-family-mono);
+	font-size: var(--scale-0);
+	overflow-wrap: break-word;
+	padding: var(--spacing-xs);
+	text-align: center;
+	white-space: pre-wrap;
+}
 
-	h1 {
-		font-size: var(--scale-4);
-	}
-
-	h2 {
-		font-size: var(--scale-3);
-	}
-
-	h3 {
-		font-size: var(--scale-2);
-	}
-
-	footer {
-		margin: var(--spacing-xl) 0;
-	}
+ul,
+ol {
+	list-style-position: outside;
+	margin-left: var(--spacing-xl);
 }
 
 ul {
-	list-style: none;
-	padding: 0;
-	margin: 0 0 var(--spacing-m) 0;
+	list-style-type: circle;
 }
 
-ul li {
+ol {
+	list-style-type: decimal;
+}
+
+ul li,
+ol li {
 	margin-bottom: var(--spacing-xs);
 }
 
-/* Fonts */
-@font-face {
-	font-family: "Roboto Flex";
-	font-style: normal;
-	/* Defer font loading */
-	font-display: swap;
-	/* Register as variable font */
-	font-stretch: 25% 151%;
-	font-weight: 100 1000;
-	src: local("Roboto Flex"), url("../fonts/Roboto-VariableFont_wdth,wght.ttf") format("woff2-variations");
-	src: local("Roboto Flex"), url("../fonts/Roboto-VariableFont_wdth,wght.ttf") format("woff2") tech("variations");
+/* Pagination */
+nav[role="navigation"] {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: var(--spacing-s);
 }
 
-@font-face {
-	font-family: "Roboto Flex";
-	font-style: italic;
-	/* Defer font loading */
-	font-display: swap;
-	/* Register as variable font */
-	font-stretch: 25% 151%;
-	font-weight: 100 1000;
-	src: local("Roboto Flex"), url("../fonts/Roboto-Italic-VariableFont_wdth,wght.ttf") format("woff2-variations");
-	src: local("Roboto Flex"), url("../fonts/Roboto-Italic-VariableFont_wdth,wght.ttf") format("woff2") tech("variations");
+nav[role="navigation"] p {
+	filter: brightness(0.6);
+}
+
+/* Mermaid */
+.mermaid {
+	text-align: center;
 }

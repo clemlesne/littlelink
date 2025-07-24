@@ -1,12 +1,21 @@
 {{ define "header" }}
+<!-- Navigation -->
+<nav role="navigation">
+  <a href='{{ "/" | relURL }}' aria-label="Back to homepage">← Back to Home</a>
+</nav>
+
 <!-- Page header -->
-<h1>{{ .Title }}</h1>
-{{ if .Description }}
-<p>{{ .Description }}</p>
-{{ end }}
+<header>
+  <h1>{{ .Title }}</h1>
+  {{ if .Description }}
+  <p>{{ .Description }}</p>
+  {{ end }}
+</header>
 {{ end }}
 
 {{ define "main" }}
 <!-- Page content -->
-{{ .Content }}
+<section>
+  {{ .Content }}
+</section>
 {{ end }}

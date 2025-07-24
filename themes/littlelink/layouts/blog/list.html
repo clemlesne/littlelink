@@ -1,0 +1,33 @@
+{{ define "header" }}
+<!-- Navigation -->
+<nav role="navigation">
+  <a href='{{ "/" | relURL }}' aria-label="Back to homepage">← Back to Home</a>
+</nav>
+
+<!-- Page header -->
+<header>
+  <h1>{{ .Title }}</h1>
+</header>
+{{ end }}
+
+{{ define "main" }}
+{{ range (.Paginate .Pages).Pages }}
+<section>
+  <header>
+    <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+    <p>{{ .Date.Format "January 2, 2006" }}</p>
+  </header>
+  {{ .Summary | safeHTML }}
+  {{ if .Truncated }}
+  <a href="{{ .Permalink }}">Read more...</a>
+  {{ end }}
+</section>
+{{ end }}
+
+<!-- Pagination -->
+<nav role="navigation">
+  <a {{ if .Paginator.HasPrev }}href="{{ .Paginator.Prev.URL }}" {{ end }} rel="prev">← Previous</a>
+  <p>{{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</p>
+  <a {{ if .Paginator.HasNext }}href="{{ .Paginator.Next.URL }}" {{ end }} rel="next">Next →</a>
+</nav>
+{{ end }}
