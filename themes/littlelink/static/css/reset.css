@@ -40,9 +40,7 @@ html:focus-within {
 /* Set core body defaults */
 body {
 	min-height: 100vh;
-	text-rendering: optimizeSpeed;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	text-rendering: optimizeLegibility;
 }
 
 /* Make images easier to work with */
@@ -70,22 +68,7 @@ select {
 	*::after {
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;
+		transition-duration: 0.01ms !important;
 	}
-}
-
-/* Modern focus styles */
-:focus:not(:focus-visible) {
-	outline: none;
-}
-
-:focus-visible {
-	outline: 2px solid #2457F5;
-	outline-offset: 2px;
-}
-
-/* Remove touch callout on iOS */
-a {
-	-webkit-touch-callout: none;
 }

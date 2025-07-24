@@ -31,8 +31,8 @@
 <!-- Social links -->
 <div class="button-stack" role="navigation" aria-label="Social media and contact links">
   {{ range .Site.Data.links }}
-  <a class="button button-{{ .class }}" href="{{ .url }}" target="_blank" rel="noopener" role="button"
-    aria-label="{{ .text }} - Opens in new tab">
+  <a class="button button-{{ .class }}" href="{{ .url }}" {{ if .external | default true }}target="_blank"
+    rel="noopener" {{ end }} role="button" aria-label="{{ .text }} - Opens in new tab">
     <img class="icon" aria-hidden="true" src="{{ .icon | relURL }}" alt="{{ .alt }}">
     {{ .text }}
   </a>

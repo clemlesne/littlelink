@@ -15,10 +15,23 @@ keywords = "Clémence Lesné, LittleLink"
 clarity_id = "slx2wreqei"
 sentry_dsn = "https://js-de.sentry-cdn.com/db63e7e0e80d9c7a5f0f0895c8bd0774.min.js"
 
+[pagination]
+pagerSize = 10
+
+[[menu.footer]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.footer]]
+name = "Blog"
+url = "/blog"
+weight = 2
+
 [[menu.footer]]
 name = "Privacy policy"
 url = "/privacy"
-weight = 10
+weight = 3
 
 [security.funcs]
 getenv = ['^HUGO_', '^CI$', '^VERSION$']

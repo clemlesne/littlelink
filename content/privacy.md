@@ -1,8 +1,8 @@
 ---
-title: "Privacy overview"
 description: "Privacy policy and data collection information for Clémence Lesné's social links."
+layout: "page"
 robots: "noindex"
-type: "page"
+title: "Privacy overview"
 ---
 
 ## Analytics and error tracking

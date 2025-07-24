@@ -60,15 +60,6 @@
   {{ $containerClass = printf "%s container--left" $containerClass }}
   {{ end }}
   <div class="{{ $containerClass }}" role="main">
-
-    {{ block "navigation" . }}
-    {{ if not .IsHome }}
-    <nav role="navigation">
-      <a href='{{ "/" | relURL }}' aria-label="Back to homepage">← Back to main page</a>
-    </nav>
-    {{ end }}
-    {{ end }}
-
     {{ block "header" . }}
     <!-- Default header block - pages can override this -->
     {{ end }}

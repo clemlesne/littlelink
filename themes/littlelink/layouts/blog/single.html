@@ -1,0 +1,78 @@
+{{ define "extra_head" }}
+<!-- Allow to load Mermaid diagrams -->
+<script type="module">
+  import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+
+  const MERMAID_CONFIG = {
+    arrowMarkerAbsolute: false,
+    fontFamily: "var(--font-family-mono)",
+    fontSize: "var(--scale-0)",
+    logLevel: "fatal",
+    securityLevel: "antiscript",
+    startOnLoad: false,
+  };
+
+  function getCurrentTheme() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "default";
+  }
+
+  function initializeMermaid() {
+    mermaid.initialize({
+      ...MERMAID_CONFIG,
+      theme: getCurrentTheme(),
+    });
+  }
+
+  async function convertAndRenderMermaid() {
+    // Convert code blocks to mermaid divs
+    const mermaidBlocks = document.querySelectorAll('code[data-lang="mermaid"]');
+    mermaidBlocks.forEach(async (block, index) => {
+      // Preserve mermaid text
+      if (!block.hasAttribute("mermaid-text")) {
+        block.setAttribute("mermaid-text", block.textContent);
+      }
+      const uniqueId = `mermaid-graph-${index}-${Date.now()}`;
+      const { svg } = await mermaid.render(uniqueId, block.getAttribute("mermaid-text"));
+      block.innerHTML = svg; // Replace code block with rendered SVG
+    });
+  }
+
+  // Initialize mermaid
+  initializeMermaid();
+
+  // Listen for color scheme changes
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", async (e) => {
+    initializeMermaid();
+    await convertAndRenderMermaid();
+  });
+
+  // Convert and render on DOM ready
+  document.addEventListener('DOMContentLoaded', convertAndRenderMermaid);
+</script>
+{{ end }}
+
+{{ define "header" }}
+<!-- Navigation -->
+<nav role="navigation">
+  <a href='{{ "/blog" | relURL }}' aria-label="Back to Blog">← Back to Blog</a>
+</nav>
+
+<!-- Page header -->
+<header>
+  <h1>{{ .Title }}</h1>
+  {{ if .Description }}
+  <p>{{ .Date.Format "January 2, 2006" }}</p>
+  {{ end }}
+</header>
+{{ end }}
+
+{{ define "main" }}
+<section>
+  {{ .Content }}
+</section>
+
+<!-- Navigation -->
+<nav role="navigation">
+  <a href='{{ "/blog" | relURL }}' aria-label="Back to Blog">← Back to Blog</a>
+</nav>
+{{ end }}
