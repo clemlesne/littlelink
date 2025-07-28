@@ -12,6 +12,7 @@ github = "https://github.com/clemlesne/littlelink"
 keywords = "Clémence Lesné, LittleLink"
 
 # SEO and Analytics
+clarity_id = "slx2wreqei"
 sentry_dsn = "https://js-de.sentry-cdn.com/db63e7e0e80d9c7a5f0f0895c8bd0774.min.js"
 
 [[menu.footer]]
